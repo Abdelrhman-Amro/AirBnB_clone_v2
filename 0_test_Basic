@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# createing all types of models
+
+echo "\
+create Amenity
+create BaseModel
+create City
+create Place
+create Review
+create State
+create User
+BaseModel.create()
+User.show(1c4f42a1-7be1-4b08-b2cb-29c4a0d8fd79)
+"
