@@ -120,12 +120,12 @@ class HBNBCommand(cmd.Cmd):
             return
         
         kw = {}
-        args = line.split()       
-        if args[0] not in HBNBCommand.classes:
+        args = line.split()  # Split line according to spaces
+        if args[0] not in HBNBCommand.classes:  # Check Class name
             print("** class doesn't exist **")
             return
 
-        for x in args[1:-1]:
+        for x in args[1:-1]:  # Iterate on params
             p = x.split("=")  # p -> Prameters
             p[1] = eval(p[1])  # turn value into original type
             if type(p[1]) == str:
