@@ -118,12 +118,12 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
             return
-        elif line not in HBNBCommand.classes:
+        
+        kw = {}
+        args = line.split()       
+        if args[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-
-        kw = {}
-        args = line.splite()
 
         for x in args[1:-1]:
             p = x.split("=")  # p -> Prameters
