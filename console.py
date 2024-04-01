@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        for x in args[1:-1]:  # Iterate on params
+        for x in args[1:]:  # Iterate on params
             p = x.split("=")  # p -> Prameters
             p[1] = eval(p[1])  # turn value into original type
             if type(p[1]) == str:
