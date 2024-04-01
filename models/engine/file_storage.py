@@ -9,20 +9,21 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """Return all objects OR ..
-        Returns the list of objects of one type of class
+        """returns a dictionary
+        Return:
+            returns a dictionary of __object
         """
-        cls_obj = {}
+        dic = {}
         if cls:
-            for item in self.__objects.items():
-                # split class name from eah item
-                # to compare it with cls.__name__
-                cls_name = item.key().split('.')[0]
-                if cls_name == cls.__name__:
-                    cls_obj.update(item)
-            return cls_obj
+            dictionary = self.__objects
+            for key in dictionary:
+                partition = key.replace('.', ' ')
+                partition = shlex.split(partition)
+                if (partition[0] == cls.__name__):
+                    dic[key] = self.__objects[key]
+            return (dic)
         else:
-            return FileStorage.__objects
+            return self.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
