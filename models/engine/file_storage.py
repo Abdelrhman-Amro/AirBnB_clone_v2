@@ -9,9 +9,8 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """
-            Return all objects OR ..
-            Returns the list of objects of one type of class
+        """Return all objects OR ..
+        Returns the list of objects of one type of class
         """
         cls_obj = {}
         if cls:
