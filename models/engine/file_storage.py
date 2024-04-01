@@ -15,7 +15,8 @@ class FileStorage:
         cls_obj = {}
         if cls:
             for item in self.__objects.items():
-                # split class name from eah item to compare it with cls.__name__
+                # split class name from eah item
+                # to compare it with cls.__name__
                 cls_name = item.key().split('.')[0]
                 if cls_name == cls.__name__:
                     cls_obj.update(item)
@@ -62,6 +63,6 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
