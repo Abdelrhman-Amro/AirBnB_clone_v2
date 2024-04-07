@@ -10,6 +10,6 @@ class City(BaseModel, Base):
     __tablename__ = "cities"
     name = Column(String(128), nullable=False)
     state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
-    cities = relationship("State", back_populates="state",
+    state = relationship("State", back_populates="cities",
                           cascade='all, delete, delete-orphan')
         
